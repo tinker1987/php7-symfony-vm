@@ -82,7 +82,8 @@ config.vm.synced_folder "./sources/", "/var/www", id: "application"
 
 ## //@TODO:
 
-Make it possible to create virtual hosts by adding new section to [site.yml](./ansible/site.yml)
+- [ ] Make it possible to create virtual hosts by adding new section to [site.yml](./ansible/site.yml);
+- [ ] Add script for importing db dump if it is available in `db/` folder.
 
 ## Troubleshooting
 
