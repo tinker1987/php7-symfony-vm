@@ -132,5 +132,5 @@ the log from your host computer (the computer that's running Vagrant).
 
 ## Credits
 
-Thanks @kleiram for his awesome [vagrant-symfony](https://github.com/kleiram/vagrant-symfony).
+Thanks [@kleiram](https://github.com/kleiram) for his awesome [vagrant-symfony](https://github.com/kleiram/vagrant-symfony).
 
