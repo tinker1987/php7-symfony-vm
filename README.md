@@ -125,14 +125,6 @@ find in the `app` directory of Symfony to the `/tmp/symfony` directory. This
 will speed up your site _a lot_. The downside is that you won't be able to check
 the log from your host computer (the computer that's running Vagrant).
 
-## To-do
-
-The following things are additions I want to add to the project:
-
-- Node.js (with the Bower package)
-
-Feel free to add these components and create a pull request!
-
 ## Versioning
 
 This project is versioned using [Semantic Versioning](http://semver.org/spec/v1.0.0.html):
