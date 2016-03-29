@@ -45,8 +45,9 @@ must have that installed. Follow the
 Installation is as easy as cloning a GitHub project:
 
 ```
-$ cd your-symfony-project
 $ git clone https://github.com/kleiram/vagrant-symfony.git vagrant
+$ cd vagrant/sources
+$ git clone {your project}
 ```
 
 After the project is added, you can start the environment like this:
@@ -78,6 +79,10 @@ with:
 config.vm.synced_folder ".",  "/vagrant", id: "vagrant-root"
 config.vm.synced_folder "./sources/", "/var/www", id: "application"
 ```
+
+## //@TODO:
+
+Make it possible to create virtual hosts by adding new section to [site.yml](./ansible/site.yml)
 
 ## Troubleshooting
 
