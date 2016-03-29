@@ -1,0 +1,45 @@
+---
+- hosts: all
+  sudo:  true
+  vars:
+    doc_root: /var/www/web
+    sys_packages:
+      - mcrypt
+      - vim
+      - mc
+    php_packages:
+      - { name: cli, package: php7.0-cli }
+      - { name: dev, package: php7.0-dev }
+      - { name: bcmath, package: php7.0-bcmath }
+      - { name: pear, package: php-pear }
+      - { name: curl, package: php7.0-curl }
+      - { name: mcrypt, package: php7.0-mcrypt }
+      - { name: mbstring, package: php7.0-mbstring }
+      - { name: mysql, package: php7.0-mysql }
+      - { name: redis, package: php-redis }
+      - { name: apc, package: php-apc }
+      - { name: gd, package: php7.0-gd }
+    php_xdebug:
+      - { name: "xdebug", package: "pecl.php.net/xdebug" }
+    php_ppa: php
+    nodejs:
+      version: _5.x
+      packages: [casperjs, phantomjs, bower, gulp, less]
+  roles:
+    - init
+    - nginx
+    - php-common
+    - php-fpm
+    - php-xdebug
+    - composer
+    - phpunit
+    - mysql
+    - mongo
+    - git
+    - curl
+    - sqlite
+    - wget
+    - beanstalkd
+    - redis
+    - memcached
+    - nodejs

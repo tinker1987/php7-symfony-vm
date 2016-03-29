@@ -1,0 +1,15 @@
+---
+
+- name: Install PHP extensions
+  sudo: yes
+  shell: echo "\n" | /usr/bin/pecl install {{ item.package }} creates=/usr/lib/php5/20151012/{{ item.name }}.so
+  with_items: php_xdebug
+
+- name: Configure PHP extensions
+  sudo: yes
+  template: src=xdebug.ini dest=/etc/php/7.0/mods-available/xdebug.ini
+
+- name: Enable PHP extensions
+  sudo: yes
+  command: /usr/sbin/phpenmod xdebug creates=/etc/php/7.0/cli/conf.d/20-xdebug.ini
+  notify: restart php7.0-fpm

@@ -1,0 +1,21 @@
+- name: Add ppa Repository
+  command: bash -lc "curl -sL https://deb.nodesource.com/setup{{ nodejs.version }} |  bash -"
+
+- name: Install nodeJS
+  apt: pkg=nodejs state=present
+
+- name: Install NPM Packages
+  npm: name={{ item }} global=yes
+  with_items: nodejs.packages
+
+- name: Move node to usr/local folder
+  sudo: yes
+  file: src=/usr/bin/nodejs dest=/usr/local/bin/node state=link
+  
+- name: Move npm to usr/local folder
+  sudo: yes
+  file: src=/usr/bin/npm dest=/usr/local/bin/npm state=link
+  
+- name: Move noed_modules to usr/local folder
+  sudo: yes
+  file: src=/usr/lib/node_modules dest=/usr/local/lib/node_modules state=link

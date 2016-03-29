@@ -1,0 +1,5 @@
+.vagrant
+vagrant_ansible_inventory_default
+!sources/
+!db/
+!scripts/

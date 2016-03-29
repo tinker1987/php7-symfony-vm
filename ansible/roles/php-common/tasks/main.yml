@@ -1,0 +1,11 @@
+---
+- name: Install PHP packages
+  sudo: yes
+  apt:  package={{ item.package }} state=latest
+  with_items: php_packages
+
+- name: Enable PHP packages
+  sudo: yes
+  command: /usr/sbin/phpenmod {{ item.name }} creates=/etc/php/7.0/cli/conf.d/20-{{ item.name }}.ini
+  with_items: php_packages
+  notify: restart php7.0-fpm
