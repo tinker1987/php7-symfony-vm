@@ -49,12 +49,12 @@ server {
 
     location @rewriteapp {
         # rewrite all to app.php
-        rewrite ^(.*)$ /app.php/$1 last;
+        rewrite ^(.*)$ /app_dev.php/$1 last;
     }
 
     location ~ ^/(app|app_dev|config)\.php(/|$) {
         root    /var/www/controlpanel/web;
-        fastcgi_pass 127.0.0.1:9000;
+        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
         fastcgi_split_path_info ^(.+\.php)(/.*)$;
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
