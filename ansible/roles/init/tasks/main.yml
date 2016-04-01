@@ -24,3 +24,9 @@
     sudo: yes
     apt:  pkg={{ item }} state=latest
     with_items: sys_packages
+
+  - name: Copy .vimrc
+    template: src=vim.tpl dest=/home/vagrant/.vimrc
+
+  - name: Enable shell colors
+    lineinfile: dest=/home/vagrant/.bashrc regexp="^#force_color_prompt=yes$" line="force_color_prompt=yes"

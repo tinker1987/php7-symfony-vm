@@ -8,4 +8,15 @@
   sudo: yes
   command: /usr/sbin/phpenmod {{ item.name }} creates=/etc/php/7.0/cli/conf.d/20-{{ item.name }}.ini
   with_items: php_packages
-  notify: restart php7.0-fpm
+
+- name: Update php.ini (updating error reporting config)
+  sudo: yes
+  lineinfile: dest=/etc/php/7.0/cli/php.ini regexp="^error_reporting = E_ALL \& \~E_DEPRECATED & \~E_STRICT$" line="error_reporting = E_ALL"
+
+- name: Update php.ini (enable errors displaying)
+  sudo: yes
+  lineinfile: dest=/etc/php/7.0/cli/php.ini regexp="^display_errors = Off$" line="display_errors = On"
+
+- name: Update php.ini (defining timezone)
+  sudo: yes
+  lineinfile: dest=/etc/php/7.0/cli/php.ini regexp="^;date.timezone =$" line="date.timezone = Europe/Stockholm"

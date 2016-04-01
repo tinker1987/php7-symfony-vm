@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
     # Configure VirtualBox environment
     config.vm.provider :virtualbox do |v|
         v.name = (0...8).map { (65 + rand(26)).chr }.join
-        v.customize [ "modifyvm", :id, "--memory", 1024 ]
+        v.customize [ "modifyvm", :id, "--memory", 1024, "--cpus", 2 ]
     end
 
     # Provision the box

@@ -2,3 +2,16 @@
 - name: Install PHP7-FPM
   sudo: yes
   apt:  package=php7.0-fpm state=latest
+
+- name: Update php.ini (updating error reporting config)
+  sudo: yes
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini regexp="^error_reporting = E_ALL \& \~E_DEPRECATED & \~E_STRICT$" line="error_reporting = E_ALL"
+
+- name: Update php.ini (enable errors displaying)
+  sudo: yes
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini regexp="^display_errors = Off$" line="display_errors = On"
+
+- name: Update php.ini (defining timezone)
+  sudo: yes
+  lineinfile: dest=/etc/php/7.0/fpm/php.ini regexp="^;date.timezone =$" line="date.timezone = Europe/Stockholm"
+  notify: restart php7.0-fpm
