@@ -45,15 +45,15 @@ must have that installed. Follow the
 Installation is as easy as cloning a GitHub project:
 
 ```
-$ git clone https://github.com/kleiram/vagrant-symfony.git vagrant
-$ cd vagrant/sources
+$ git clone https://github.com/tinker1987/php7-symfony-vm VM
+$ cd VM/sources
 $ git clone {your project}
 ```
 
 After the project is added, you can start the environment like this:
 
 ```
-$ cd vagrant
+$ cd VM
 $ vagrant up
 ```
 
