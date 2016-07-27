@@ -37,7 +37,7 @@ server {
     location / {
         # try to serve file directly, fallback to rewrite
         root   /var/www/controlpanel/web;
-        index  app_dev.php;
+        index  app.php;
         try_files $uri @rewriteapp;
         
         expires 30d; ## Assume all files are cachable
@@ -49,7 +49,7 @@ server {
 
     location @rewriteapp {
         # rewrite all to app.php
-        rewrite ^(.*)$ /app_dev.php/$1 last;
+        rewrite ^(.*)$ /app.php/$1 last;
     }
 
     location ~ ^/(app|app_dev|config)\.php(/|$) {
@@ -59,6 +59,7 @@ server {
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
         fastcgi_param HTTPS off;
+        fastcgi_param SYMFONY_ENV 'dev';
     }
     
     error_log /var/log/nginx/controlpanel.error.log;
