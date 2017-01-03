@@ -23,7 +23,7 @@
       - { name: "xdebug", package: "pecl.php.net/xdebug" }
     php_ppa: php
     nodejs:
-      version: _5.x
+      version: _6.x
       packages: [casperjs, phantomjs, bower, gulp, less]
   roles:
     - init
