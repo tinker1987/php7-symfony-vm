@@ -1,6 +1,6 @@
 Vagrant.configure("2") do |config|
     # Configure the box to use
-    config.vm.box       = 'ubuntu/trusty64'
+    config.vm.box       = 'ubuntu/xenial64'
     # config.vm.box_url   = 'http://files.vagrantup.com/precise64.box'
 
     # Configure the network interfaces
